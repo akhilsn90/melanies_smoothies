@@ -9,7 +9,6 @@ st.write(
     """Choose the fruits you want in your custom smoothie!
     """)
 
-
 name_on_order = st.text_input('Name on Smoothie:')
 st.write('The Name on your smoothie will be:', name_on_order)
 
@@ -24,11 +23,10 @@ ingredients_list=st.multiselect(
     , max_selections=5
 )
 if ingredients_list:
- 
-    ingredients_string=''
-
-    for fruit_chosen in ingredients_list:
-        	ingredients_string += fruit_chosen + ' '
+	ingredients_string=''
+	
+	for fruit_chosen in ingredients_list:
+		ingredients_string += fruit_chosen + ' '
 		fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 		fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
